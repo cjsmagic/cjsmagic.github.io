@@ -81,11 +81,13 @@ var AppComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_landing_pages_home_home_component__ = __webpack_require__("../../../../../src/app/modules/landing-pages/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_landing_pages_home_home_component__ = __webpack_require__("../../../../../src/app/modules/landing-pages/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_landing_pages_home_home_service__ = __webpack_require__("../../../../../src/app/modules/landing-pages/home/home.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -99,8 +101,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var ROUTES = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_5__modules_landing_pages_home_home_component__["a" /* HomeComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_6__modules_landing_pages_home_home_component__["a" /* HomeComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -108,17 +112,18 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_3__header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__modules_landing_pages_home_home_component__["a" /* HomeComponent */]
+                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__modules_landing_pages_home_home_component__["a" /* HomeComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* RouterModule */].forRoot(ROUTES)
+                __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_router__["a" /* RouterModule */].forRoot(ROUTES)
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_7__modules_landing_pages_home_home_service__["a" /* HomeService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -142,6 +147,9 @@ var AppConfig = (function () {
             'link': 'projects/vally'
         }
     ];
+    AppConfig.jsonData = {
+        homeUrl: "./assets/jsonData/modules/landing-pages/home/home.json"
+    };
     return AppConfig;
 }());
 
@@ -152,7 +160,7 @@ var AppConfig = (function () {
 /***/ "../../../../../src/app/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid theme-color\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4 \">\n        <h3 class=\"theme-font-color text-center\">Repositories</h3>\n        <span class=\"footer-links\">\n\t\t\t\tMeta Scrapper\n\t\t\t\t</span>\n        <span class=\"footer-links\">\n\t\t\t\tVally\n\t\t\t\t</span>\n      </div>\n      <div class=\"col-md-4\">\n        <h3 class=\"theme-font-color text-center\">social links</h3>\n         <span class=\"footer-links\">\n        Facebook\n        </span>\n         <span class=\"footer-links\">\n        Instagram\n        </span>\n         <span class=\"footer-links\">\n        Linkedin\n        </span>\n      </div>\n      <div class=\"col-md-4\">\n        <h3 class=\"theme-font-color text-center\">Interests</h3>\n      </div>\n    </div>\n    <small class=\"text-right theme-font-color display-block\">Built using Angular 4, Bootstrap 3, jQuery</small>\n  </div>\n  \n</div>\n"
+module.exports = "<div class=\"container-fluid theme-color footer\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4 \">\n        <h3 class=\"theme-font-color text-center\">Repositories</h3>\n        <span class=\"footer-links\">\n\t\t\t\tMeta Scrapper\n\t\t\t\t</span>\n        <span class=\"footer-links\">\n\t\t\t\tVally\n\t\t\t\t</span>\n      </div>\n      <div class=\"col-md-4\">\n        <h3 class=\"theme-font-color text-center\">social links</h3>\n         <span class=\"footer-links\">\n        Facebook\n        </span>\n         <span class=\"footer-links\">\n        Instagram\n        </span>\n         <span class=\"footer-links\">\n        Linkedin\n        </span>\n      </div>\n      <div class=\"col-md-4\">\n        <h3 class=\"theme-font-color text-center\">Interests</h3>\n      </div>\n    </div>\n    <small class=\"text-right theme-font-color display-block\">Built using Angular 4, Bootstrap 3, jQuery</small>\n  </div>\n  \n</div>\n"
 
 /***/ }),
 
@@ -280,7 +288,7 @@ var HeaderComponent = (function () {
 /***/ "../../../../../src/app/modules/landing-pages/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n    <!-- Indicators -->\n    <ol class=\"carousel-indicators\">\n      <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n    </ol>\n    <!-- Wrapper for slides -->\n    <div class=\"carousel-inner\">\n      <div class=\"item active\">\n        <img src=\"assets/images/la.jpg\" alt=\"Los Angeles\" style=\"width:100%;\">\n      </div>\n      <div class=\"item\">\n        <img src=\"assets/images/chicago.jpg\" alt=\"Chicago\" style=\"width:100%;\">\n      </div>\n      <div class=\"item\">\n        <img src=\"assets/images/ny.jpg\" alt=\"New york\" style=\"width:100%;\">\n      </div>\n    </div>\n    <!-- Left and right controls -->\n    <a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\">\n      <span class=\"glyphicon glyphicon-chevron-right\"></span>\n      <span class=\"sr-only\">Next</span>\n    </a>\n  </div>\n  <div class=\"jumbotron\">\n    <h1>About me</h1>\n    <blockquote>\"Just curious about things, my favourite words be like why, how, when, biriyaniii\"</blockquote>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n    <!-- Indicators -->\n    <ol class=\"carousel-indicators\">\n      <!-- <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li> -->\n      <li data-target=\"#myCarousel\" [attr.data-slide-to]=\"dotIndex\" [ngClass]=\"{'active':dotIndex==0 }\" *ngFor=\" let bannerItem of  bannerData; let dotIndex = index \"></li>\n    </ol>\n    <!-- Wrapper for slides -->\n    <div class=\"carousel-inner\">\n      <div class=\"item\" [ngClass]=\"{'active':dotIndex==0 }\" *ngFor=\"let bannerItem of  bannerData; let dotIndex = index \">\n      <a [routerLink]=\"bannerItem.link\"><img [src]=\"bannerItem.imageUrl\" [alt]=\"bannerItem.name\" style=\"width:100%;\"></a>\n      </div>\n    </div>\n    <!-- Left and right controls -->\n    <a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n    <a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n  </div>\n  <div class=\"jumbotron\">\n    <h1>About me</h1>\n    <blockquote>\"Just curious about things, my favourite words be like why, how, when, biriyaniii\"</blockquote>\n  </div>\n  <div class=\"list-group\">\n  <a href=\"#\" class=\"list-group-item active\">First item</a>\n  <a href=\"#\" class=\"list-group-item\">Second item</a>\n  <a href=\"#\" class=\"list-group-item\">Third item</a>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -308,6 +316,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_service__ = __webpack_require__("../../../../../src/app/modules/landing-pages/home/home.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -318,10 +327,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(homeService) {
+        this.homeService = homeService;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.homeService.getHomeData().subscribe(function (httpResponse) {
+            // console.log(data);
+            console.log(httpResponse);
+            _this.bannerData = httpResponse.data['bannerImages'];
+        });
     };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -330,9 +347,47 @@ var HomeComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/modules/landing-pages/home/home.component.scss")],
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewEncapsulation */].None
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__home_service__["a" /* HomeService */]])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/modules/landing-pages/home/home.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configs_app_config__ = __webpack_require__("../../../../../src/app/configs/app.config.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var HomeService = (function () {
+    function HomeService(http) {
+        this.http = http;
+    }
+    HomeService.prototype.getHomeData = function () {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__configs_app_config__["a" /* AppConfig */].jsonData.homeUrl);
+    };
+    HomeService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], HomeService);
+    return HomeService;
 }());
 
 

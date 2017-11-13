@@ -1,0 +1,17 @@
+{
+  "status": 0,
+  "data":
+  {
+    "bannerImages": [
+    {
+      "name": "angular-4-code.png",
+      "imageUrl": "assets/images/angular-4-code.png",
+      "link": ""
+    },{
+      "name": "angular-4-code.png",
+      "imageUrl": "assets/images/angular-4-code.png",
+      "link": ""
+    }]
+
+  }
+}
