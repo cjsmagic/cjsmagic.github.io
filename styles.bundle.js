@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.theme-color {\n  background-color: #222;\n  border-color: #080808; }\n\n.theme-font-color {\n  color: #9d9d9d; }\n  .theme-font-color:hover {\n    color: #fff; }\n\n.footer-links {\n  color: #9d9d9d;\n  font-size: 12px;\n  display: block;\n  text-align: center;\n  padding-bottom: 10px; }\n  .footer-links:hover {\n    color: #fff; }\n\n.padding-bottom {\n  padding-bottom: 10px; }\n\n.display-block {\n  display: block; }\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.theme-color {\n  background-color: #222;\n  border-color: #080808; }\n\n.theme-font-color {\n  color: #9d9d9d; }\n  .theme-font-color:hover {\n    color: #fff; }\n\n.footer-links {\n  color: #9d9d9d;\n  font-size: 12px;\n  display: block;\n  text-align: center;\n  padding-bottom: 10px; }\n  .footer-links:hover {\n    color: #fff; }\n\n.padding-bottom {\n  padding-bottom: 10px; }\n\n.display-block {\n  display: block; }\n\n.margin-top {\n  margin-top: 10px; }\n", ""]);
 
 // exports
 
